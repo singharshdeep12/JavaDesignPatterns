@@ -6,7 +6,7 @@ public class Builder2 {
 
 class UserEntity2{
 
-    private String name;
+    private String name1;
     private int age;
     private String address;
 
