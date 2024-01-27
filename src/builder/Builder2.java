@@ -22,8 +22,8 @@ class UserEntity2{
         return age;
     }
 
-    private void setAge(int age) {
-        this.age = age;
+    private void setAge(int age1) {
+        this.age = age1;
     }
 
     public String getAddress() {
