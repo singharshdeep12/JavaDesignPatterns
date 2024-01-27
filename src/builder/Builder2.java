@@ -63,7 +63,7 @@ class UserEntityBuilderImpl implements UserEntityBuilder{
     }
 }
 
-//User Entity Class
+//User Entity Class - with setters as package private (only builder can access)
 class UserEntity2{
 
     private String name;
@@ -74,7 +74,7 @@ class UserEntity2{
         return name;
     }
 
-    public void setName(String name) {
+    void setName(String name) {
         this.name = name;
     }
 
@@ -82,7 +82,7 @@ class UserEntity2{
         return age;
     }
 
-    public void setAge(int age1) {
+    void setAge(int age1) {
         this.age = age1;
     }
 
@@ -90,7 +90,7 @@ class UserEntity2{
         return address;
     }
 
-    public void setAddress(String address) {
+    void setAddress(String address) {
         this.address = address;
     }
 
