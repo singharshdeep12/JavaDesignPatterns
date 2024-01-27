@@ -1,9 +1,69 @@
 package builder;
 
+// Director/ Client Code
 public class Builder2 {
+
+    public static void main(String[] args) {
+
+        UserEntityBuilder arshBuilder = new UserEntityBuilderImpl();
+
+        UserEntity2 arsh = arshBuilder
+                .withName("Arshdeep Singh")
+                .withAge(28)
+                .buildUser();
+
+        System.out.println(arsh);
+
+    }
+
 }
 
+// Builder Interface class
+interface UserEntityBuilder{
 
+    public UserEntityBuilder withName(String name);
+
+    public UserEntityBuilder withAge(int age);
+
+    public UserEntityBuilder withAddress(String address);
+
+    public UserEntity2 buildUser();
+}
+
+//Builder interface implementation class
+class UserEntityBuilderImpl implements UserEntityBuilder{
+
+    private UserEntity2 user;
+
+    public UserEntityBuilderImpl() {
+        user = new UserEntity2();
+    }
+
+    @Override
+    public UserEntityBuilder withName(String name) {
+        user.setName(name);
+        return this;
+    }
+
+    @Override
+    public UserEntityBuilder withAge(int age) {
+        user.setAge(age);
+        return this;
+    }
+
+    @Override
+    public UserEntityBuilder withAddress(String address) {
+        user.setAddress(address);
+        return this;
+    }
+
+    @Override
+    public UserEntity2 buildUser() {
+        return user;
+    }
+}
+
+//User Entity Class
 class UserEntity2{
 
     private String name;
@@ -14,7 +74,7 @@ class UserEntity2{
         return name;
     }
 
-    private void setName(String name) {
+    public void setName(String name) {
         this.name = name;
     }
 
@@ -22,7 +82,7 @@ class UserEntity2{
         return age;
     }
 
-    private void setAge(int age1) {
+    public void setAge(int age1) {
         this.age = age1;
     }
 
@@ -30,7 +90,7 @@ class UserEntity2{
         return address;
     }
 
-    private void setAddress(String address) {
+    public void setAddress(String address) {
         this.address = address;
     }
 
@@ -42,40 +102,6 @@ class UserEntity2{
                 ", address='" + address + '\'' +
                 '}';
     }
-
-
-    public static UserBuilder1 getBuilder(){
-        return new UserBuilder1();
-    }
-
-    static class UserBuilder1{
-        private UserEntity user;
-
-        UserBuilder1(){
-            user = new UserEntity();
-        }
-
-        public UserBuilder1 withName(String name){
-            user.setName(name);
-            return this;
-        }
-
-        public UserBuilder1 withAge(int age){
-            user.setAge(age);
-            return this;
-        }
-
-        public UserBuilder1 withAddress(String address){
-            user.setAddress(address);
-            return this;
-        }
-
-        public UserEntity buildUser(){
-            return user;
-        }
-
-    }
-
 
 }
 
