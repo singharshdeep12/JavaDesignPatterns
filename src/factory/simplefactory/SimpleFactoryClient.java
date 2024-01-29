@@ -18,7 +18,6 @@ public class SimpleFactoryClient {
 }
 
 class SimpleFactory{
-
     static Post createAPost(String typeOfPost){
         switch(typeOfPost.toLowerCase()) {
             case "news":
@@ -28,9 +27,8 @@ class SimpleFactory{
             case "tweet":
                 return new Tweet();
             default: {
-                try {
-                    throw new IllegalAccessException("No such post");
-                } catch (Exception e){}
+                try {throw new IllegalAccessException("No such post");}
+                catch (Exception e){}
             }
         }
         return null;
