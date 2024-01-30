@@ -3,10 +3,10 @@ package factory.abstractfactory;
 public class BetterAbstractFactoryClient {
 
     public static void main(String[] args) {
-        createCloudResource(new GCPResources(),Capacity.MICRO,32);
+        createServer(new GCPResources(),Capacity.MICRO,32);
     }
 
-    static void createCloudResource(CloudResourceFactory factory,
+    static void createServer(CloudResourceFactory factory,
                              Capacity capacity,int gbSize){
         Instance instance = factory.createInstance(capacity);
         instance.attachStorage(factory.createStorage(gbSize));
